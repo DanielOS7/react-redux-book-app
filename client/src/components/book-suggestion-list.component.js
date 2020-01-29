@@ -10,7 +10,7 @@ function BookSuggestionList(props) {
                 <div className="row">
                     {props.books.map(books => {
                         return (
-                            <div className="col" key={books.id}>
+                            <div className="col col-sm-4 col-md-3 col-lg-2 col-xl-2" key={books.id}>
                                 <Card style={{ width: '10rem' }}>
                                     <Card.Img variant="top" src={`https://www.mylocation.com/${books.Location}/${books.Cover}`} />
                                     <Card.Body>
