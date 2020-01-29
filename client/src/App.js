@@ -1,6 +1,9 @@
+  
 import React from 'react';
+import BookSuggestion from './components/book-suggestion.component';
 import logo from './logo.svg';
 import './App.css';
+
 
 function App() {
   return (
@@ -19,6 +22,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <BookSuggestion/>
     </div>
   );
 }
