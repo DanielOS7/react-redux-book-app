@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import fetchBooks from '../services/fetchBooks.service';
+import BookSuggestionList from './book-suggestion-list.component';
 
-function BookSuggestion(props) {
+function BookSuggestionView(props) {
 
     const bookSuggestion = useSelector(state => state.books);
     const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function BookSuggestion(props) {
         <div>
             <button onClick={() => { console.log(bookSuggestion.books) }}>Log Data</button>
             <button onClick={() => { console.log(props) }}>Log Props</button>
+            <BookSuggestionList books={bookSuggestion.books} />
         </div>
     );
 }
@@ -37,4 +39,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(BookSuggestion);
+)(BookSuggestionView);

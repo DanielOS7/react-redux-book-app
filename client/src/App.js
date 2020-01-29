@@ -1,7 +1,6 @@
-  
 import React from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
-import BookSuggestion from './components/book-suggestion.component';
+import BookSuggestionView from './components/book-suggestion-view.component';
 import './App.css';
 
 
@@ -9,7 +8,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Route exact path={"/"} component={BookSuggestion} />
+        <Route exact path={"/"} component={BookSuggestionView} />
       </BrowserRouter>
     </div>
   );
