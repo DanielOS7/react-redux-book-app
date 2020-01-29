@@ -1,19 +1,19 @@
 export const fetchBooksPending = () => {
     return {
-      type: 'FETCH_BOOKS_PENDING'
+        type: 'FETCH_BOOKS_PENDING'
     }
-  }
-  
-  export const fetchBooksSuccess = (books) => {
+}
+
+export const fetchBooksSuccess = (books) => {
     return {
-      type: 'FETCH_BOOKS_SUCCESS',
-      books: books
+        type: 'FETCH_BOOKS_SUCCESS',
+        books: books
     }
-  }
-  
-  export const fetchBooksError = (error) => {
+}
+
+export const fetchBooksError = (error) => {
     return {
-      type: 'FETCH_BOOKS_ERROR',
-      error: error
+        type: 'FETCH_BOOKS_ERROR',
+        error: error
     }
-  }
+}

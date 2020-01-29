@@ -15,8 +15,7 @@ function BookSuggestionView(props) {
 
     return (
         <div>
-            {/* <button onClick={() => { console.log(bookSuggestion.books) }}>Log Data</button>
-            <button onClick={() => { console.log(props) }}>Log Props</button> */}
+            {props.books.error && <div>Error</div>}
             <BookSuggestionList books={bookSuggestion.books} />
         </div>
     );
