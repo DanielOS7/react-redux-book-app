@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function BookSuggestion() {
 
-    fetch(`http://localhost:2700/books`)
-        .then(response => response.json())
-        .then(data => console.log(data))
+    let [books, setBooks] = useState([]);
 
-    const greeting = 'Book Suggestion Component';
-    return <h1>{greeting}</h1>;
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch(`http://localhost:2700/books`);
+            const responseData = await response.json();
+            setBooks(responseData);
+        }
+        fetchData();
+    }, []);
+
+    return (
+        <div>
+            <button onClick={() => { console.log(books) }}>Log Data</button>
+        </div>
+    );
 }
 
 export default BookSuggestion;
