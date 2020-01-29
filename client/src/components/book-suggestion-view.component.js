@@ -1,55 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
-import { fetchBooks } from '../actions/root.action'
+import { bindActionCreators } from 'redux';
+import fetchBooks from '../services/fetchBooks.service';
 
-function BookSuggestion() {
+function BookSuggestion(props) {
 
-    let [books, setBooks] = useState([]);
     const bookSuggestion = useSelector(state => state.books);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchBooks())
-        // async function fetchData() {
-        //     const response = await fetch(`http://localhost:2700/books`);
-        //     const responseData = await response.json();
-        //     setBooks(responseData);
-        // }
-        // fetchData();
+        dispatch(fetchBooks());
     }, []);
 
     return (
         <div>
             <button onClick={() => { console.log(bookSuggestion.books) }}>Log Data</button>
+            <button onClick={() => { console.log(props) }}>Log Props</button>
         </div>
     );
 }
 
-export default BookSuggestion;import React, { useState, useEffect } from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
-import { fetchBooks } from '../actions/root.action'
+const getBooksPending = state => state.isFetching;
+const getBooks = state => state.books;
+const getBooksError = state => state.error;
 
-function BookSuggestion() {
+const mapStateToProps = state => ({
+    error: getBooksError(state),
+    books: getBooks(state),
+    pending: getBooksPending(state)
+})
 
-    let [books, setBooks] = useState([]);
-    const bookSuggestion = useSelector(state => state.books);
-    const dispatch = useDispatch();
+const mapDispatchToProps = dispatch => bindActionCreators({
+    fetchBooksAction: fetchBooks
+}, dispatch)
 
-    useEffect(() => {
-        dispatch(fetchBooks())
-        // async function fetchData() {
-        //     const response = await fetch(`http://localhost:2700/books`);
-        //     const responseData = await response.json();
-        //     setBooks(responseData);
-        // }
-        // fetchData();
-    }, []);
-
-    return (
-        <div>
-            <button onClick={() => { console.log(bookSuggestion.books) }}>Log Data</button>
-        </div>
-    );
-}
-
-export default BookSuggestion;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(BookSuggestion);

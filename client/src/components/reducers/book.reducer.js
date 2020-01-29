@@ -1,30 +1,30 @@
-const INITIAL_STATE = {
-    books: [],
+const initialState = {
     isFetching: false,
+    books: [],
     error: undefined
   };
-
-  function booksReducer(state = INITIAL_STATE, action) {
+  
+  export default function booksReducer(state = initialState, action) {
     switch (action.type) {
-      case 'FETCH_BOOKS_REQUEST':
-        return Object.assign({}, state, {
+      case 'FETCH_BOOKS_PENDING':
+        return {
+          ...state,
           isFetching: true
-        });
+        }
       case 'FETCH_BOOKS_SUCCESS':
-        console.log("Hey there")
-        return Object.assign({}, state, {
+        return {
+          ...state,
           isFetching: false,
           books: action.books
-        });
-      case 'FETCH_BOOKS_FAILURE':
-        return Object.assign({}, state, {
+        }
+      case 'FETCH_BOOKS_ERROR':
+        return {
+          ...state,
           isFetching: false,
           error: action.error
-        });
+        }
       default:
         return state;
     }
   }
-
-
-export default booksReducer;
+  
