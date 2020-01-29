@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import fetchBooks from '../services/fetchBooks.service';
+import fetchBooks from './services/fetchBooks.service';
 import BookSuggestionList from './book-suggestion-list.component';
 
 function BookSuggestionView(props) {
@@ -15,8 +15,8 @@ function BookSuggestionView(props) {
 
     return (
         <div>
-            <button onClick={() => { console.log(bookSuggestion.books) }}>Log Data</button>
-            <button onClick={() => { console.log(props) }}>Log Props</button>
+            {/* <button onClick={() => { console.log(bookSuggestion.books) }}>Log Data</button>
+            <button onClick={() => { console.log(props) }}>Log Props</button> */}
             <BookSuggestionList books={bookSuggestion.books} />
         </div>
     );
