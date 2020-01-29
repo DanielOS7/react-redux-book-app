@@ -14,7 +14,7 @@ function BookSuggestionView(props) {
     }, []);
 
     return (
-        <div>
+        <div id="bookView">
             {props.books.error && <div>Error</div>}
             <BookSuggestionList books={bookSuggestion.books} />
         </div>
