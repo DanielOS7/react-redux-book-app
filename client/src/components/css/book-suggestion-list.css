@@ -1,25 +1,25 @@
 .book-container {
-    padding-right: 10px!important;
-    padding-left: 10px!important;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .col{
-    margin-bottom: 10px!important;
+    margin-bottom: 10px;
 }
 
 .card {
-    border: none!important;
-    border-radius: 0rem!important;
+    border: none;
+    border-radius: 0rem;
 }
 
 .card-body {
-    padding: 0px!important;
+    padding: 0px;
 }
 
 .card-title {
-    margin-bottom: -0.05rem!important;
+    margin-bottom: -0.05rem;
 }
 
 .card-text {
-    color: lightslategrey!important;
+    color: lightslategrey;
 }
